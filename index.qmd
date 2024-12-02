@@ -1,0 +1,52 @@
+---
+title: "ejemplo1"
+format: 
+  revealjs:
+    embed-resources: true
+editor: visual
+execute: 
+  echo: true
+---
+
+## Ejemplo 1
+
+```{r}
+#| include: false
+library(tidyverse)
+library(ggplot2)
+```
+
+------------------------------------------------------------------------
+
+### Cargamos los datos
+
+```{r}
+load("datos/accidentes2020_data.rda")
+accidentes2020_data 
+
+data_tidy <- accidentes2020_data |> 
+  as_tibble()
+
+data_tidy
+```
+
+------------------------------------------------------------------------
+
+### Resumen
+
+```{r}
+resumen <- data_tidy |> 
+  count(sexo)
+resumen
+```
+
+------------------------------------------------------------------------
+
+### Visualización
+
+```{r}
+ggplot(resumen) +
+  geom_col(aes(x=sexo, y = n, fill = sexo), alpha=0.6) +
+  ggthemes::scale_fill_colorblind() +
+  theme_minimal()
+```
