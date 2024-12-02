@@ -50,3 +50,7 @@ ggplot(resumen) +
   ggthemes::scale_fill_colorblind() +
   theme_minimal()
 ```
+
+---
+
+Hola Sara, te ves estupenda
